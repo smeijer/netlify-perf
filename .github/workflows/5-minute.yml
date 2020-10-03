@@ -1,0 +1,15 @@
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  perf:
+    runs-on: ubuntu-latest
+    name: Check perf every 5 minutes
+    steps:
+      - uses: actions/checkout@v1
+      - name: Hello world action step
+        id: hello
+        uses: ./.github/actions/probe
+        with:
+          endpoint: 'https://....'

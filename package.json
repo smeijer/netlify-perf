@@ -1,0 +1,58 @@
+{
+  "name": "netlify-perf",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "author": "Stephan Meijer <stephan@meijer.ws>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smeijer/netlify-perf.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "",
+    "build:actions": "ncc build .github/actions/probe/index.js -o .github/actions/probe/dist",
+    "watch": "rimraf ./dist && microbundle -i src/index.js -o dist/index.js --no-pkg-main -f umd --sourcemap true --compress false --target node --watch --raw",
+    "prettier": "prettier . --write",
+    "bump:patch": "npm version patch -m 'release: cut the %s release'",
+    "bump:minor": "npm version minor -m 'release: cut the %s release'",
+    "bump:major": "npm version major -m 'release: cut the %s release'",
+    "preversion": "npm run test && npm run build",
+    "postversion": "git push && git push --tags && npm publish"
+  },
+  "files": [
+    "docs",
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "jest",
+    "matchers",
+    "extend",
+    "extended",
+    "test",
+    "testing",
+    "assertions",
+    "partial",
+    "snapshot"
+  ],
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.1",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "microbundle": "^0.12.4",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.0.2",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "mongodb": "^3.6.2",
+    "node-fetch": "^2.6.1",
+    "picoid": "^1.0.0"
+  }
+}

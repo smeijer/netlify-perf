@@ -1,0 +1,9 @@
+[build]
+  functions = "./src"
+  publish = "./src/client"
+
+[dev]
+  functions = "./src"
+
+[template.environment]
+  MONGODB_URI = "set mongodb uri"
