@@ -12,4 +12,4 @@ jobs:
         id: hello
         uses: ./.github/actions/probe
         with:
-          endpoint: 'https://....'
+          endpoint: 'https://probe.netlify.app/.netlify/functions/probe-lambda'
