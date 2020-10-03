@@ -20,7 +20,7 @@ function parse(stdout) {
 }
 
 async function probe() {
-  const data = await vmstat();
+  const data = await exec('vmstat');
   return parse(data);
 }
 
