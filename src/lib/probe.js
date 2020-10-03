@@ -1,20 +1,4 @@
-const { exec } = require('child_process');
-
-async function vmstat() {
-  return new Promise((resolve, reject) => {
-    exec(`vmstat`, (error, stdout, stderr) => {
-      if (error) {
-        return reject(error.message);
-      }
-
-      if (stderr) {
-        return reject(stderr);
-      }
-
-      resolve(stdout);
-    });
-  });
-}
+const { exec } = require('./exec');
 
 function parse(stdout) {
   const [groups, keys, values] = stdout
