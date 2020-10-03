@@ -1,6 +1,6 @@
 [build]
-  functions = "./src"
-  publish = "./src/client"
+  functions = "./dist/functions"
+  publish = "./dist/client"
 
 [dev]
   functions = "./src"
